@@ -14,3 +14,7 @@ body {
     margin: 1;
     padding:10px;
 }
+img {
+    width: 250px;
+    height: 250px;
+}
