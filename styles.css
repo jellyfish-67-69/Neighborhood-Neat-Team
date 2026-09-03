@@ -10,11 +10,20 @@ p  {
     color: #000000;
 }
 body {
-    background-color: #ffffff;
+    background-color: rgb(148, 255, 255);
     margin: 1;
     padding:10px;
 }
 img {
     width: 250px;
     height: 250px;
+}
+.image-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.image-container img {
+    max-width: 300px;
+    height: auto;
 }
