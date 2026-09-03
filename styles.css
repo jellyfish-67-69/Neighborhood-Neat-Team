@@ -1,6 +1,6 @@
 h1 {
-    font-family: Times Comfortaa, serif;
-    font-size: 20px;
+    font-family: Times New Roman, serif;
+    font-size: 50px;
     color: #000000;
 }
 
@@ -10,7 +10,7 @@ p  {
     color: #000000;
 }
 body {
-    background-color: rgb(148, 255, 255);
+    background-color: rgb(193, 252, 252);
     margin: 1;
     padding:10px;
 }
@@ -26,4 +26,10 @@ img {
 .image-container img {
     max-width: 300px;
     height: auto;
+}
+.img-1 {
+    border: 5px solid #000000;
+}
+.img-2 {
+    border: 5px solid #000000;
 }
