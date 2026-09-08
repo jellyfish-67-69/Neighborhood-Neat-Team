@@ -33,3 +33,8 @@ img {
 .img-2 {
     border: 5px solid #000000;
 }
+nav a:hover {
+    color: #2E86Ab;
+    margin: 1;
+    padding: 20px;
+}
