@@ -41,10 +41,6 @@ nav a:hover {
     gap: 20px;
     align-items: center;
 }
-.logo {
-    align-items: left;
-    
-}
 table, th, td {
     border: 1px solid black;
     Border-collapse: collapse;
@@ -62,4 +58,10 @@ table {
 .map {
     width: 950px;
     height: auto;
+}
+.hero--image {
+    background: url(Heooo.jpg);
+    position: relative;
+    padding: 160px 40px;
+    color: #fff;
 }
