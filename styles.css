@@ -10,7 +10,7 @@ p  {
     color: #000000;
 }
 body {
-    background-color: #c3ffff;
+    background-color: #7291c0;
     margin: 1;
     padding:10px;
 }
@@ -66,6 +66,6 @@ table {
     color: #fff;
 }
 .Review {
-    max-width: 600px;
+    width: 600px;
     height: auto
 }
