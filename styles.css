@@ -1,75 +1,141 @@
+/* Base Page Elements */
+body {
+    background-color: #7291c0;
+    margin: 0; /* Keeps the video banner flush against the absolute edges of the screen */
+    padding: 10px;
+}
+
 h1 {
-    font-family: Times New Roman, serif;
+    font-family: "Times New Roman", serif; /* Wrapped multi-word font name in quotes */
     font-size: 50px;
     color: #000000;
 }
 
-p  { 
-    font-family: Times Comfortaa, serif;
+p { 
+    font-family: "Comfortaa", sans-serif; /* Fixed font family name and fallback system category */
     font-size: 16px;
     color: #000000;
 }
-body {
-    background-color: #7291c0;
-    margin: 1;
-    padding:10px;
-}
+
+/* Global Image Sizing */
 img {
     width: 250px;
     height: 250px;
 }
-.image-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.image-container img {
-    max-width: 300px;
-    height: auto;
-}
-.img-1 {
-    border: 5px solid #000000;
-}
-.img-2 {
-    border: 5px solid #000000;
-}
-nav a:hover {
-    color: #2E86Ab;
-}
+
+/* Navigation Bar Layout */
 .nav-bar {
     display: flex;
     gap: 20px;
     align-items: center;
 }
+
+nav a:hover {
+    color: #2E86Ab;
+}
+
+/* Hero Video Showcase Layout (Optimized for Local File Formats) */
+.hero-video {
+    position: relative;
+    height: 600px; /* Standard horizontal/landscape height for desktop screens */
+    width: 100%;
+    overflow: hidden;
+    background-color: #000000; /* Fallback background color while the video loads */
+}
+
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Automatically clips horizontal margins to fit the frame container */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Elevates the text layer directly on top of the moving video frame */
+    text-align: center;
+    padding-top: 220px; /* Vertically balances the title within the 600px container */
+}
+
+/* Specific styling for the 'See it live!' title inside the hero banner */
+.hero-content h1 {
+    color: #ffffff; /* Changes text to white so it stands out against the couch footage */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Strong drop shadow ensures deep readability */
+    margin: 0;
+}
+
+/* Before & After Image Comparison Block */
+.image-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-container img {
+    max-width: 300px;
+    height: auto; /* Overrides global height setting to preserve realistic picture aspect proportions */
+}
+
+.img-1 {
+    border: 5px solid #000000;
+}
+
+.img-2 {
+    border: 5px solid #000000;
+}
+
+/* Tables (Used on inner pages) */
 table, th, td {
     border: 1px solid black;
-    Border-collapse: collapse;
+    border-collapse: collapse;
 }
+
 th, td {
     padding: 20px;
 }
+
 th {
     text-align: left;
-    background: color #fddf95;
+    background-color: #fddf95; /* Corrected typo 'background: color #fddf95' */
 }
+
 table {
     border-spacing: 5px;
 }
+
+/* Utility Elements (Used across other subpages) */
 .map {
     width: 950px;
     height: auto;
 }
-.hero-video {
-    position: relative;
-    height: 600px; overflow: hidden;
-}
-.hero-video video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-}
-.hero-content {z-index: 1;}
+
 .Review {
-    width: 600px;
-    height: auto
+    width: 300px;
+    height: 200px;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Adjustments (Turns layout vertical on smartphones)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Transforms the banner box shape into a tall vertical rectangle */
+    .hero-video {
+        height: 70vh; /* Takes up 70% of the mobile screen height */
+    }
+
+    /* Recenters the white heading inside the newly stretched vertical mobile banner */
+    .hero-content {
+        padding-top: 30vh;
+    }
+
+    /* Force-stacks the side-by-side Before & After images into a vertical column */
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 }
