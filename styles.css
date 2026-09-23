@@ -1,63 +1,117 @@
-/* Base Page Elements */
+/* ==========================================================================
+   Base Page Elements & Global Resets
+   ========================================================================== */
 body {
     background-color: #7291c0;
-    margin: 0; /* Keeps the video banner flush against the absolute edges of the screen */
-    padding: 10px;
+    margin: 0; 
+    padding: 20px;
+    font-family: "Comfortaa", sans-serif;
+    color: #1a2536; /* Dark gray for softer contrast than pure pitch black */
+    line-height: 1.6; /* Adds comfortable breathing space between text lines */
+}
+
+h1, h2, h3 {
+    font-family: "Times New Roman", serif;
+    color: #0b1320;
+    font-weight: 700;
+    margin-top: 0;
 }
 
 h1 {
-    font-family: "Times New Roman", serif; /* Wrapped multi-word font name in quotes */
     font-size: 50px;
-    color: #000000;
+}
+
+h2 {
+    font-size: 36px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 p { 
-    font-family: "Comfortaa", sans-serif; /* Fixed font family name and fallback system category */
+    font-family: "Comfortaa", sans-serif;
     font-size: 16px;
-    color: #000000;
+    max-width: 800px; /* Keeps text paragraphs from stretching completely sideways */
+    margin-bottom: 20px;
 }
 
-/* Global Image Sizing (FIXED: Removed rigid 250px height so full pictures are visible) */
+/* Global Image Reset to prevent any stretching distortion */
 img {
     width: 100%;
     max-width: 250px;
-    height: auto; /* Allows natural proportions to prevent cropping or squishing */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* Navigation Bar Layout */
+/* ==========================================================================
+   Navigation Bar Layout (Turned into Clean modern Menu Controls)
+   ========================================================================== */
 .nav-bar {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
     align-items: center;
-    padding-right: 150px; /* Increased to protect your links from hitting the larger logo */
+    padding: 15px 180px 15px 15px; /* Keeps spacious right gap for the fixed logo */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-nav a:hover {
-    color: #2E86Ab;
+.nav-bar a {
+    font-family: "Comfortaa", sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease; /* Smooth fade animation on focus */
 }
 
-/* Logo Top-Right Fixed Position Styling */
+.nav-bar a:hover {
+    background-color: #2E86Ab;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(46, 134, 171, 0.3);
+}
+
+/* ==========================================================================
+   Logo Top-Right Fixed Position Layout
+   ========================================================================== */
 .logo {
-    position: fixed;   /* Prevents the logo from moving when scrolling */
-    top: 15px;         /* Adds a clean gap from the top edge */
-    right: 15px;       /* Adds a clean gap from the right edge */
-    z-index: 1000;     /* Ensures it stays on top of all other content */
+    position: fixed;   
+    top: 20px;         
+    right: 20px;       
+    z-index: 1000;     
 }
 
 .logo .logo-img {
-    width: 120px;       /* Increased from 60px to 120px to make it larger */
-    height: auto !important; /* Force-overrides global image rules to maintain proportions */
-    object-fit: contain !important; /* Forces the complete logo to fit nicely without any cropping */
-    border-radius: 4px; /* Softens corners */
+    width: 130px;       
+    height: auto !important; 
+    object-fit: contain !important; 
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Soft drop drop-shadow frame background */
+    transition: transform 0.3s ease;
 }
 
-/* Hero Video Showcase Layout (Optimized for Local File Formats) */
+.logo .logo-img:hover {
+    transform: scale(1.04); /* Subtle click-lure expansion frame pop */
+}
+
+/* ==========================================================================
+   Hero Video Showcase Layout
+   ========================================================================== */
 .hero-video {
     position: relative;
-    height: 600px; /* Standard horizontal/landscape height for desktop screens */
+    height: 550px; 
     width: 100%;
     overflow: hidden;
-    background-color: #000000; /* Fallback background color while the video loads */
+    background-color: #0b1320;
+    border-radius: 16px; /* Smooth rounded corners on the media container box */
+    margin-bottom: 40px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .hero-video video {
@@ -67,34 +121,64 @@ nav a:hover {
     width: 100%;
     height: 100%;
     transform: translate(-50%, -50%);
-    object-fit: cover; /* Automatically clips horizontal margins to fit the frame container */
+    object-fit: cover; 
     z-index: 0;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1; /* Elevates the text layer directly on top of the moving video frame */
+    z-index: 1; 
     text-align: center;
-    padding-top: 220px; /* Vertically balances the title within the 600px container */
+    padding-top: 200px; 
 }
 
-/* Specific styling for the title inside the hero banner */
 .hero-content h1 {
-    color: #ffffff; /* Changes text to white so it stands out against the footage */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Strong drop shadow ensures deep readability */
+    color: #ffffff; 
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.7); 
     margin: 0;
+    font-size: 55px;
 }
 
-/* Before & After Image Comparison Block */
+/* ==========================================================================
+   Before & After Image Comparison Block
+   ========================================================================== */
 .image-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 30px 0;
+    width: fit-content;
+}
+
+/* Keeps the text label and its matching photo stacked vertically */
+.image-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.image-container p {
+    font-weight: bold;
+    color: #0b1320;
+    margin: 0;
 }
 
 .image-container img {
-    max-width: 300px;
-    height: auto !important; /* Overrides global height setting to preserve realistic proportions */
+    max-width: 320px;
+    height: auto !important; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: translateY(-4px); /* Moves up slightly on desktop hover highlights */
 }
 
 .img-1 {
@@ -105,29 +189,109 @@ nav a:hover {
     border: 5px solid #000000;
 }
 
-/* Tables (Used on inner pages) */
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+/* ==========================================================================
+   Reviews Gallery Grid Layout (Cleaned with modern Card styles)
+   ========================================================================== */
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;     
+    gap: 30px;           
+    margin-top: 30px;
+    justify-content: center; 
+}
+
+.review-card {
+    width: 450px !important;    
+    max-width: 90vw;            
+    height: auto !important;    
+    border: 4px solid #ffffff;
+    border-radius: 16px;  /* Smooth frame border casing */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+/* ==========================================================================
+   Cleaner Profiles Layout (Premium Profile Card blocks)
+   ========================================================================== */
+.cleaner-profile {
+    display: flex;
+    align-items: center; 
+    gap: 30px;           
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 650px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cleaner-profile img {
+    width: 180px;        
+    height: 180px !important; /* Perfect uniform headshot aspect bounds */
+    border-radius: 50%;   /* Gives the cleaner photos a premium round avatar look */
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cleaner-info p {
+    margin: 6px 0;
+    color: #1a2536;
+}
+
+.cleaner-info p:first-child {
+    font-size: 24px;
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    color: #0b1320;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Tables & Utility Layout Core Components
+   ========================================================================== */
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    margin: 25px 0;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 th, td {
-    padding: 20px;
+    padding: 16px 20px;
+    background-color: #ffffff;
 }
 
 th {
+    font-family: "Comfortaa", sans-serif;
+    font-weight: bold;
     text-align: left;
     background-color: #fddf95;
+    color: #4a3600;
 }
 
-table {
-    border-spacing: 5px;
+tr:nth-child(even) td {
+    background-color: #f7fafc; /* Alternating table row light gray bars */
 }
 
-/* Utility Elements (Used across other subpages) */
 .map {
-    width: 950px;
+    width: 100%;
+    max-width: 950px;
     height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .Review {
@@ -136,87 +300,42 @@ table {
 }
 
 /* ==========================================================================
-   Reviews Gallery Grid Layout (Displays review photos side-by-side)
-   ========================================================================== */
-.reviews-container {
-    display: flex;
-    flex-wrap: wrap;     /* Allows images to gracefully drop to a new line when out of room */
-    gap: 30px;           /* Increased spacing between each review card */
-    margin-top: 30px;
-    justify-content: center; /* Centers the whole gallery group on the screen */
-}
-
-/* FIXED: Made images much larger and forced height to be fully visible */
-.review-card {
-    width: 450px !important;    /* Expanded layout footprint so screenshots are easy to read */
-    max-width: 90vw;            /* Safety bounds so images won't spill past screens */
-    height: auto !important;    /* Completely displays the entire image from top to bottom */
-    border: 3px solid #ffffff;
-    border-radius: 8px;  
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-/* ==========================================================================
-   Cleaner Profiles Layout (Aligns image and text side-by-side)
-   ========================================================================== */
-.cleaner-profile {
-    display: flex;
-    align-items: center; /* Centers the text vertically next to the photo */
-    gap: 20px;           /* Puts space between the photo and the info text */
-    margin-top: 25px;
-    background-color: rgba(255, 255, 255, 0.15); /* Subtle background backing to pop the card */
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.cleaner-profile img {
-    width: 200px;        /* Sets a clean, standard width for the cleaner photo */
-    height: auto !important; /* Overrides global height rules to preserve photo proportions */
-    border-radius: 6px;  /* Softens photo edges */
-    object-fit: cover;
-}
-
-/* Tighter spacing for the cleaner's meta info */
-.cleaner-info p {
-    margin: 4px 0;
-}
-
-/* Bold the cleaner's name to make it look like a clear headline */
-.cleaner-info p:first-child {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-/* ==========================================================================
-   Mobile & Responsive Adjustments (Turns layouts vertical on smartphones)
+   Mobile & Responsive Adjustments
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Transforms the banner box shape into a tall vertical rectangle */
+    body {
+        padding: 15px;
+    }
+
+    .nav-bar {
+        padding: 15px;
+        justify-content: center;
+    }
+
     .hero-video {
-        height: 70vh; /* Takes up 70% of the mobile screen height */
+        height: 60vh; 
     }
 
-    /* Recenters the white heading inside the newly stretched vertical mobile banner */
     .hero-content {
-        padding-top: 30vh;
+        padding-top: 25vh;
     }
 
-    /* Force-stacks the side-by-side Before & After images into a vertical column */
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
     .image-container {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        width: 100%;
     }
 
-    /* Stacks the cleaner photo and text vertically on mobile devices */
     .cleaner-profile {
         flex-direction: column;
         text-align: center;
-        align-items: center;
+        padding: 20px;
     }
 
-    /* Adjusts layout nicely on mobile screens */
     .review-card {
         width: 100% !important;
     }

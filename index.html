@@ -19,11 +19,12 @@
         <a href="page6.html">Review</a>
         <a href="page7.html">Contact</a>
     </nav>
+
     <!-- Hero Showcase Section featuring a Native Looping Video File -->
-     <section class="logo">
-        <!-- Added class="logo-img" here so the CSS can target it correctly -->
+    <section class="logo">
         <img src="Neighborhood Neat Team (3).jpg" alt="Neighborhood Neat Team logo" class="logo-img">
-     </section>
+    </section>
+
     <section class="hero-video">
         <!-- The controls attribute is omitted so it behaves purely as a smooth background element -->
         <video autoplay muted loop playsinline id="bg-video">
@@ -35,6 +36,7 @@
             <h1>Neighborhood Neat Team</h1>
         </div>
     </section>
+
     <!-- Main Text Content and Introductions -->
     <main>
         <h1>Neighborhood Neat Team</h1>
@@ -42,12 +44,17 @@
         <p>We handle general and deep cleaning tasks to keep a house tidy and sanitary. We also include dusting surfaces, scrubbing bathrooms and kitchen counters, vacuuming carpets, and mopping hard floors. We can also customize visits with extra chores like changing bed linens or wiping appliance exteriors.</p>
         <p>Our goal is to provide a clean and healthy environment for your home. You can trust us with your home and its cleanliness. We help people of all ages whether it's a quick clean or a deep clean, and our rates stay the same. We are available and you can book us at any time.</p>
         
-        <!-- Before & After Comparison Layout Block -->
+        <!-- Before & After Comparison Layout Block (Optimized with structured containers) -->
         <div class="image-container">
-            <p>We can turn your home from this!</p>
-            <img src="Dirty_home.jpg" class="img-1" alt="An Average Dirty Home">
-            <p>To this!</p>
-            <img src="Clean_home.jpg" class="img-2" alt="An Average Clean Home">
+            <div class="image-box">
+                <p>We can turn your home from this!</p>
+                <img src="Dirty_home.jpg" class="img-1" alt="An Average Dirty Home">
+            </div>
+            
+            <div class="image-box">
+                <p>To this!</p>
+                <img src="Clean_home.jpg" class="img-2" alt="An Average Clean Home">
+            </div>
         </div>
     </main>
 
