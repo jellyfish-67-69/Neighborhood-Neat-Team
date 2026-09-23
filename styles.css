@@ -29,6 +29,15 @@ img {
     gap: 20px;
     align-items: center;
 }
+.logo {
+  position: fixed;   /* Prevents the logo from moving when scrolling */
+  top: 20px;         /* Adds a clean gap from the top edge */
+  right: 20px;       /* Adds a clean gap from the right edge */
+  width: 50px;       /* Makes the logo a lot smaller (adjust as needed) */
+  height: auto;      /* Maintains the logo's original proportions */
+  z-index: 1000;     /* Ensures it stays on top of all other content */
+}
+
 
 nav a:hover {
     color: #2E86Ab;
