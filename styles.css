@@ -148,3 +148,34 @@ table {
         gap: 15px;
     }
 }
+/* ==========================================================================
+   Cleaner Profiles Layout (Aligns image and text side-by-side)
+   ========================================================================== */
+.cleaner-profile {
+    display: flex;
+    align-items: center; /* Centers the text vertically next to the photo */
+    gap: 20px;           /* Puts space between the photo and the info text */
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.15); /* Optional: subtle background backing to pop the card */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.cleaner-profile img {
+    width: 200px;        /* Sets a clean, standard width for the cleaner photo */
+    height: auto;        /* Overrides your global 250px height to preserve photo proportions */
+    border-radius: 6px;  /* Softens photo edges */
+    object-fit: cover;
+}
+
+/* Tighter spacing for the cleaner's meta info */
+.cleaner-info p {
+    margin: 4px 0;
+}
+
+/* Bold the cleaner's name to make it look like a clear headline */
+.cleaner-info p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
