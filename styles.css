@@ -17,10 +17,11 @@ p {
     color: #000000;
 }
 
-/* Global Image Sizing */
+/* Global Image Sizing (FIXED: Removed rigid 250px height so full pictures are visible) */
 img {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    max-width: 250px;
+    height: auto; /* Allows natural proportions to prevent cropping or squishing */
 }
 
 /* Navigation Bar Layout */
@@ -28,19 +29,26 @@ img {
     display: flex;
     gap: 20px;
     align-items: center;
+    padding-right: 150px; /* Increased to protect your links from hitting the larger logo */
 }
-.logo {
-  position: fixed;   /* Prevents the logo from moving when scrolling */
-  top: 20px;         /* Adds a clean gap from the top edge */
-  right: 20px;       /* Adds a clean gap from the right edge */
-  width: 50px;       /* Makes the logo a lot smaller (adjust as needed) */
-  height: auto;      /* Maintains the logo's original proportions */
-  z-index: 1000;     /* Ensures it stays on top of all other content */
-}
-
 
 nav a:hover {
     color: #2E86Ab;
+}
+
+/* Logo Top-Right Fixed Position Styling */
+.logo {
+    position: fixed;   /* Prevents the logo from moving when scrolling */
+    top: 15px;         /* Adds a clean gap from the top edge */
+    right: 15px;       /* Adds a clean gap from the right edge */
+    z-index: 1000;     /* Ensures it stays on top of all other content */
+}
+
+.logo .logo-img {
+    width: 120px;       /* Increased from 60px to 120px to make it larger */
+    height: auto !important; /* Force-overrides global image rules to maintain proportions */
+    object-fit: contain !important; /* Forces the complete logo to fit nicely without any cropping */
+    border-radius: 4px; /* Softens corners */
 }
 
 /* Hero Video Showcase Layout (Optimized for Local File Formats) */
@@ -70,9 +78,9 @@ nav a:hover {
     padding-top: 220px; /* Vertically balances the title within the 600px container */
 }
 
-/* Specific styling for the 'See it live!' title inside the hero banner */
+/* Specific styling for the title inside the hero banner */
 .hero-content h1 {
-    color: #ffffff; /* Changes text to white so it stands out against the couch footage */
+    color: #ffffff; /* Changes text to white so it stands out against the footage */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Strong drop shadow ensures deep readability */
     margin: 0;
 }
@@ -86,7 +94,7 @@ nav a:hover {
 
 .image-container img {
     max-width: 300px;
-    height: auto; /* Overrides global height setting to preserve realistic picture aspect proportions */
+    height: auto !important; /* Overrides global height setting to preserve realistic proportions */
 }
 
 .img-1 {
@@ -109,7 +117,7 @@ th, td {
 
 th {
     text-align: left;
-    background-color: #fddf95; /* Corrected typo 'background: color #fddf95' */
+    background-color: #fddf95;
 }
 
 table {
@@ -128,7 +136,60 @@ table {
 }
 
 /* ==========================================================================
-   Mobile & Responsive Adjustments (Turns layout vertical on smartphones)
+   Reviews Gallery Grid Layout (Displays review photos side-by-side)
+   ========================================================================== */
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;     /* Allows images to gracefully drop to a new line when out of room */
+    gap: 30px;           /* Increased spacing between each review card */
+    margin-top: 30px;
+    justify-content: center; /* Centers the whole gallery group on the screen */
+}
+
+/* FIXED: Made images much larger and forced height to be fully visible */
+.review-card {
+    width: 450px !important;    /* Expanded layout footprint so screenshots are easy to read */
+    max-width: 90vw;            /* Safety bounds so images won't spill past screens */
+    height: auto !important;    /* Completely displays the entire image from top to bottom */
+    border: 3px solid #ffffff;
+    border-radius: 8px;  
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   Cleaner Profiles Layout (Aligns image and text side-by-side)
+   ========================================================================== */
+.cleaner-profile {
+    display: flex;
+    align-items: center; /* Centers the text vertically next to the photo */
+    gap: 20px;           /* Puts space between the photo and the info text */
+    margin-top: 25px;
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle background backing to pop the card */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.cleaner-profile img {
+    width: 200px;        /* Sets a clean, standard width for the cleaner photo */
+    height: auto !important; /* Overrides global height rules to preserve photo proportions */
+    border-radius: 6px;  /* Softens photo edges */
+    object-fit: cover;
+}
+
+/* Tighter spacing for the cleaner's meta info */
+.cleaner-info p {
+    margin: 4px 0;
+}
+
+/* Bold the cleaner's name to make it look like a clear headline */
+.cleaner-info p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Adjustments (Turns layouts vertical on smartphones)
    ========================================================================== */
 @media (max-width: 768px) {
     /* Transforms the banner box shape into a tall vertical rectangle */
@@ -147,35 +208,16 @@ table {
         align-items: center;
         gap: 15px;
     }
-}
-/* ==========================================================================
-   Cleaner Profiles Layout (Aligns image and text side-by-side)
-   ========================================================================== */
-.cleaner-profile {
-    display: flex;
-    align-items: center; /* Centers the text vertically next to the photo */
-    gap: 20px;           /* Puts space between the photo and the info text */
-    margin-top: 25px;
-    background-color: rgba(255, 255, 255, 0.15); /* Optional: subtle background backing to pop the card */
-    padding: 15px;
-    border-radius: 8px;
-}
 
-.cleaner-profile img {
-    width: 200px;        /* Sets a clean, standard width for the cleaner photo */
-    height: auto;        /* Overrides your global 250px height to preserve photo proportions */
-    border-radius: 6px;  /* Softens photo edges */
-    object-fit: cover;
-}
+    /* Stacks the cleaner photo and text vertically on mobile devices */
+    .cleaner-profile {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
 
-/* Tighter spacing for the cleaner's meta info */
-.cleaner-info p {
-    margin: 4px 0;
-}
-
-/* Bold the cleaner's name to make it look like a clear headline */
-.cleaner-info p:first-child {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    /* Adjusts layout nicely on mobile screens */
+    .review-card {
+        width: 100% !important;
+    }
 }
